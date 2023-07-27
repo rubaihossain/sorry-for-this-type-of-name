@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Burst</title>
+    <!-- Tailwind and DaisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lato google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/3fe3c65a9b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- tailwind custom -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              textblack: "#121212",
+              primarydark: "#F85559",
+              rstar: "#e48560",
+            },
+            backgroundImage: {
+              "custom-gradient":
+                "linear-gradient(180deg, #121212 0%, rgba(18, 18, 18, 0.00) 100%)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundImage: {
+              "custom-gradient":
+                "linear-gradient(180deg, #121212 0%, rgba(18, 18, 18, 0.00) 100%)",
+            },
+          },
+        },
+      };
+    </script> -->
+
+    <style>
+      .font-lato {
+        font-family: "Lato", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="font-lato">
+    <!-- Header Start -->
+    <header>
+      <!-- Navbar Start -->
+      <nav
+        class="max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl navbar mx-auto my-4 px-5 lg:px-0"
+      >
+        <div
+          class="navbar bg-base-100 bg-white md:bg-primarydark rounded-full flex justify-between items-center px-3 py-3"
+        >
+          <div class="navbar-start w-full md:w-[50%]">
+            <div
+              class="dropdown flex justify-between w-full md:w-[1%] relative"
+            >
+              <!-- Logo -->
+              <div class="w-[200px] items-center flex md:hidden">
+                <img class="w-[40px] mr-2" src="./images/logo.png" alt="Logo" />
+                <span class="text-3xl md:text-white font-bold"
+                  >Fruit Burst</span
+                >
+              </div>
+              <!-- Menu -->
+              <label tabindex="0" class="btn btn-ghost lg:hidden">
+                <i
+                  class="fa-solid fa-bars text-2xl text-right md:text-white"
+                ></i>
+              </label>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 absolute top-10 right-5 md:left-5"
+              >
+                <li><a class="lg:text-white font-medium">Home</a></li>
+                <li><a class="lg:text-white font-medium">About Us</a></li>
+                <li><a class="lg:text-white font-medium">Shop</a></li>
+                <li><a class="lg:text-white font-medium">All Fruits</a></li>
+              </ul>
+            </div>
+            <!-- Menu -->
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1">
+                <li><a class="text-white font-medium text-base">Home</a></li>
+                <li>
+                  <a class="text-white font-medium text-base">About Us</a>
+                </li>
+                <li><a class="text-white font-medium text-base">Shop</a></li>
+                <li>
+                  <a class="text-white font-medium text-base">All Fruits</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Logo -->
+          <div class="w-[200px] items-center hidden md:flex">
+            <img
+              class="w-[40px] mr-2"
+              src="./images/logo.png"
+              alt="Fruit Logo"
+            />
+            <span
+              class="text-xl md:text-base lg:text-2xl md:text-white font-extrabold"
+              >Fruit Burst</span
+            >
+          </div>
+          <!-- Search bar -->
+          <div class="hidden md:flex navbar-end items-center mr-7">
+            <input
+              type="text"
+              placeholder="Search here"
+              class="input w-[55%] h-10 pl-6 rounded-full md:rounded-e-none placeholder:text-sm focus:outline-none"
+            />
+            <button
+              class="rounded-full md:rounded-s-none w-10 bg-white h-10"
+              type="submit"
+            >
+              <i class="fa-solid fa-magnifying-glass pr-6"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar End -->
+
+      <!-- Banner Section Start -->
+      <div
+        class="max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl navbar mx-auto mt-4 px-5 lg:px-0 relative"
+      >
+        <div
+          class="carousel w-full rounded-lg min-h-fit md:min-h-[50vh] lg:min-h-[90vh]"
+        >
+          <div id="slide1" class="carousel-item relative w-full">
+            <img src="./images/banner1.png" class="w-full" />
+            <div class="absolute inset-0 bg-custom-gradient rounded-lg"></div>
+            <div
+              class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2"
+            >
+              <div>
+                <a
+                  href="#slide4"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-left text-white w-7"></i
+                ></a>
+              </div>
+
+              <div
+                class="hero-content text-center text-neutral-content lg:-mt-20"
+              >
+                <div class="text-[#FFFFFF] md:space-y-8 relative">
+                  <h1 class="md:mb-5 text-xl lg:text-7xl font-extrabold">
+                    Exotic tastes at your <br />
+                    doorstep
+                  </h1>
+                  <p class="text-[0.70rem] md:text-base md:mb-5">
+                    We supply highly quality organic products
+                  </p>
+                  <button
+                    class="btn bg-primarydark text-white border-none capitalize"
+                  >
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+              <div>
+                <a
+                  href="#slide2"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-right text-white w-7"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div id="slide2" class="carousel-item relative w-full">
+            <img src="./images/banner2.png" class="w-full" />
+            <div class="absolute inset-0 bg-custom-gradient rounded-lg"></div>
+            <div
+              class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2"
+            >
+              <div>
+                <a
+                  href="#slide1"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-left text-white w-7"></i
+                ></a>
+              </div>
+
+              <div
+                class="hero-content text-center text-neutral-content lg:-mt-20"
+              >
+                <div class="text-[#FFFFFF] md:space-y-8 relative">
+                  <h1 class="md:mb-5 text-xl lg:text-7xl font-extrabold">
+                    Exotic tastes at your <br />
+                    doorstep
+                  </h1>
+                  <p class="text-[0.70rem] md:text-base md:mb-5">
+                    We supply highly quality organic products
+                  </p>
+                  <button
+                    class="btn bg-primarydark text-white border-none capitalize"
+                  >
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+              <div>
+                <a
+                  href="#slide3"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-right text-white w-7"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div id="slide3" class="carousel-item relative w-full">
+            <img src="./images/banner3.png" class="w-full" />
+            <div class="absolute inset-0 bg-custom-gradient rounded-lg"></div>
+            <div
+              class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2"
+            >
+              <div>
+                <a
+                  href="#slide2"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-left text-white w-7"></i
+                ></a>
+              </div>
+
+              <div
+                class="hero-content text-center text-neutral-content lg:-mt-20"
+              >
+                <div class="text-[#FFFFFF] md:space-y-8 relative">
+                  <h1 class="md:mb-5 text-xl lg:text-7xl font-extrabold">
+                    Exotic tastes at your <br />
+                    doorstep
+                  </h1>
+                  <p class="text-[0.70rem] md:text-base md:mb-5">
+                    We supply highly quality organic products
+                  </p>
+                  <button
+                    class="btn bg-primarydark text-white border-none capitalize"
+                  >
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+              <div>
+                <a
+                  href="#slide4"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-right text-white w-7"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div id="slide4" class="carousel-item relative w-full">
+            <img src="./images/banner4.png" class="w-full" />
+            <div class="absolute inset-0 bg-custom-gradient rounded-lg"></div>
+            <div
+              class="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2"
+            >
+              <div>
+                <a
+                  href="#slide3"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-left text-white w-7"></i
+                ></a>
+              </div>
+
+              <div
+                class="hero-content text-center text-neutral-content lg:-mt-20"
+              >
+                <div class="text-[#FFFFFF] md:space-y-8 relative">
+                  <h1 class="md:mb-5 text-xl lg:text-7xl font-extrabold">
+                    Exotic tastes at your <br />
+                    doorstep
+                  </h1>
+                  <p class="text-[0.70rem] md:text-base md:mb-5">
+                    We supply highly quality organic products
+                  </p>
+                  <button
+                    class="btn bg-primarydark text-white border-none capitalize"
+                  >
+                    Shop Now
+                  </button>
+                </div>
+              </div>
+              <div>
+                <a
+                  href="#slide1"
+                  class="btn btn-circle bg-[#121212] border-[#121212]"
+                  ><i class="fa-solid fa-angle-right text-white w-7"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Banner Section End -->
+
+      <!-- banner-bottom -->
+      <div
+        class="absolute md:-bottom-24 md:left-9 lg:left-32 lg:-bottom-36 bg-white rounded-md shadow-lg lg:gap-16 lg:px-16 lg:py-6 hidden md:flex lg:flex"
+      >
+        <div class="flex-1 text-center flex-col">
+          <img src="./images/fruit1.png" alt="Grape" />
+          <p class="text-textblack">Grape</p>
+        </div>
+        <div class="flex-1 text-center flex-col">
+          <img src="./images/fruit2.png" alt="Orange" />
+          <p class="text-textblack">Orange</p>
+        </div>
+        <div class="flex-1 text-center flex-col">
+          <img src="./images/fruit3.png" alt="Mango" />
+          <p class="text-textblack">Mango</p>
+        </div>
+        <div class="flex-1 text-center flex-col">
+          <img src="./images/fruit4.png" alt="Strawberry" />
+          <p class="text-textblack">Strawberry</p>
+        </div>
+        <div class="flex-1 text-center flex-col">
+          <img src="./images/fruit5.png" alt="Pomegranate" />
+          <p class="text-textblack">Pomegranate</p>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <main class="mt-36">
+      <!-- Deal Section Start -->
+      <section
+        class="px-3 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl mx-auto mt-4 md:mt-56"
+      >
+        <div class="flex lg:flex-row flex-col md:mt-24">
+          <!-- content -->
+          <div class="flex-1">
+            <h3
+              class="font-extrabold text-center lg:text-start text-3xl md:text-5xl lg:pl-0"
+            >
+              Deal of the day
+            </h3>
+            <p
+              class="font-medium text-center lg:text-start text-base md:text-xl lg:max-w-xl my-6"
+            >
+              Contrary to popular belief, is not simply random text. It has
+              roots in a piece of classical Latin literature from 45 BC, making
+              it over 2000 years old.
+            </p>
+          </div>
+
+          <!-- Timer -->
+          <div class="flex-1">
+            <div
+              class="grid grid-flow-col gap-5 p-5 md:pl-40 lg:pl-0 md:text-center auto-cols-max justify-end"
+            >
+              <div class="flex flex-col">
+                <span class="countdown text-3xl md:text-5xl font-extrabold">
+                  <span class="pr-5" style="--value: 29"></span>
+                  <img
+                    class="w-6"
+                    src="./images/Threedotsvertical.svg"
+                    alt=""
+                  />
+                </span>
+                <p class="font-medium mr-10">Days</p>
+              </div>
+              <div class="flex flex-col">
+                <span class="countdown text-3xl md:text-5xl font-extrabold">
+                  <span class="pr-5" style="--value: 15"></span
+                  ><img
+                    class="w-6"
+                    src="./images/Threedotsvertical.svg"
+                    alt=""
+                  />
+                </span>
+                <p class="font-medium mr-10">Hours</p>
+              </div>
+              <div class="flex flex-col">
+                <span class="countdown text-3xl md:text-5xl font-extrabold">
+                  <span class="pr-5" style="--value: 25"></span
+                  ><img
+                    class="w-6"
+                    src="./images/Threedotsvertical.svg"
+                    alt=""
+                  />
+                </span>
+                <p class="font-medium mr-10">Minutes</p>
+              </div>
+              <div class="flex flex-col">
+                <span class="countdown text-3xl md:text-5xl font-extrabold">
+                  <span style="--value: 08"></span>
+                </span>
+                <p class="font-medium">Seconds</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Deal Fruits Card-->
+        <div class="py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!--Card 1-->
+          <div class="card py-16 bg-base-100 shadow-md">
+            <figure>
+              <img class="h-32" src="./images/fruit6.png" alt="Apple" />
+            </figure>
+            <div class="card-body flex justify-center items-center">
+              <h2 class="card-title text-2xl font-bold">12.90$ - 18.85$</h2>
+              <hr class="w-52 h-[1px] bg-[#DEDEDE]" />
+              <p class="text-[#121212] font-medium">Apple</p>
+              <!-- Rating -->
+              <div>
+                <div class="rating rating-lg rating-half">
+                  <input type="radio" name="rating-1" class="rating-hidden" />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-1"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <!-- Modal -->
+                <button class="text-primarydark" onclick="my_modal_5.showModal()">
+                  Details
+                </button>
+                <dialog
+                  id="my_modal_5"
+                  class="modal modal-bottom sm:modal-middle"
+                >
+                  <form method="dialog" class="modal-box">
+                    <div class="py-10 space-y-5 text-center">
+                      <img src="./images/fruit6.png" alt="" class="mx-auto" />
+                      <div>
+                        <h3 class="text-3xl font-extrabold">Apple</h3>
+                        <p>
+                          Professional employees are there for you to pick the
+                          most amazing and fresh fruits.
+                        </p>
+                      </div>
+                      <div class="rating rating-lg rating-half">
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="rating-hidden"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                          checked
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-1"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                      </div>
+                      <div class="modal-action flex justify-center">
+                        <button
+                          class="px-8 py-4 mr-5 border-primarydark border-2 rounded-md font-extrabold text-primarydark"
+                        >
+                          Close
+                        </button>
+                        <button
+                          class="px-8 py-4 bg-primarydark border-none rounded-md font-extrabold text-white"
+                        >
+                          Buy Now
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </dialog>
+              </div>
+            </div>
+          </div>
+
+          <!--card 2-->
+          <div class="card py-16 bg-base-100 shadow-md">
+            <figure>
+              <img class="h-32" src="./images/fruit7.png" alt="Orange" />
+            </figure>
+            <div class="card-body flex justify-center items-center">
+              <h2 class="card-title text-2xl font-bold">12.90$ - 18.85$</h2>
+              <hr class="w-52 h-[1px] bg-[#DEDEDE]" />
+              <p class="text-[#121212] font-medium">Orange</p>
+              <!-- Rating -->
+              <div>
+                <div class="rating rating-lg rating-half">
+                  <input type="radio" name="rating-2" class="rating-hidden" />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <!-- Modal -->
+                <button class="text-primarydark" onclick="my_modal_5.showModal()">
+                  Details
+                </button>
+                <dialog
+                  id="my_modal_5"
+                  class="modal modal-bottom sm:modal-middle"
+                >
+                  <form method="dialog" class="modal-box">
+                    <div class="py-10 space-y-5 text-center">
+                      <img
+                        src="./images/fruit7.png"
+                        alt="Orange"
+                        class="mx-auto"
+                      />
+                      <div>
+                        <h3 class="text-3xl font-extrabold">Orange</h3>
+                        <p>
+                          Professional employees are there for you to pick the
+                          most amazing and fresh fruits.
+                        </p>
+                      </div>
+                      <div class="rating rating-lg rating-half">
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="rating-hidden"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                          checked
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-2"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                      </div>
+                      <div class="modal-action flex justify-center">
+                        <button
+                          class="px-8 py-4 mr-5 border-primarydark border-2 rounded-md font-extrabold text-primarydark"
+                        >
+                          Close
+                        </button>
+                        <button
+                          class="px-8 py-4 bg-primarydark border-none rounded-md font-extrabold text-white"
+                        >
+                          Buy Now
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </dialog>
+              </div>
+            </div>
+          </div>
+
+          <!--card 3-->
+          <div class="card py-16 bg-base-100 shadow-md">
+            <figure>
+              <img class="h-32" src="./images/fruit8.png" alt="Red Dragon" />
+            </figure>
+            <div class="card-body flex justify-center items-center">
+              <h2 class="card-title text-2xl font-bold">12.90$ - 18.85$</h2>
+              <hr class="w-52 h-[1px] bg-[#DEDEDE]" />
+              <p class="text-[#121212] font-medium">Red Dragon</p>
+              <!-- Rating -->
+              <div>
+                <div class="rating rating-lg rating-half">
+                  <input type="radio" name="rating-3" class="rating-hidden" />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-3"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <!-- Modal -->
+                <button class="text-primarydark" onclick="my_modal_5.showModal()">
+                  Details
+                </button>
+                <dialog
+                  id="my_modal_5"
+                  class="modal modal-bottom sm:modal-middle"
+                >
+                  <form method="dialog" class="modal-box">
+                    <div class="py-10 space-y-5 text-center">
+                      <img
+                        src="./images/fruit8.png"
+                        alt="Red Dragon"
+                        class="mx-auto"
+                      />
+                      <div>
+                        <h3 class="text-3xl font-extrabold">Red Dragon</h3>
+                        <p>
+                          Professional employees are there for you to pick the
+                          most amazing and fresh fruits.
+                        </p>
+                      </div>
+                      <div class="rating rating-lg rating-half">
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="rating-hidden"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                          checked
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-3"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                      </div>
+                      <div class="modal-action flex justify-center">
+                        <button
+                          class="px-8 py-4 mr-5 border-primarydark border-2 rounded-md font-extrabold text-primarydark"
+                        >
+                          Close
+                        </button>
+                        <button
+                          class="px-8 py-4 bg-primarydark border-none rounded-md font-extrabold text-white"
+                        >
+                          Buy Now
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </dialog>
+              </div>
+            </div>
+          </div>
+          <!--card 4-->
+          <div class="card py-16 bg-base-100 shadow-md">
+            <figure>
+              <img class="h-32" src="./images/fruit9.png" alt="Banana" />
+            </figure>
+            <div class="card-body flex justify-center items-center">
+              <h2 class="card-title text-2xl font-bold">12.90$ - 18.85$</h2>
+              <hr class="w-52 h-[1px] bg-[#DEDEDE]" />
+              <p class="text-[#121212] font-medium">Banana</p>
+              <!-- Rating -->
+              <div>
+                <div class="rating rating-lg rating-half">
+                  <input type="radio" name="rating-4" class="rating-hidden" />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-4"
+                    class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <!-- Modal -->
+                <button class="text-primarydark" onclick="my_modal_5.showModal()">
+                  Details
+                </button>
+                <dialog
+                  id="my_modal_5"
+                  class="modal modal-bottom sm:modal-middle"
+                >
+                  <form method="dialog" class="modal-box">
+                    <div class="py-10 space-y-5 text-center">
+                      <img
+                        src="./images/fruit9.png"
+                        alt="Banana"
+                        class="mx-auto"
+                      />
+                      <div>
+                        <h3 class="text-3xl font-extrabold">Banana</h3>
+                        <p>
+                          Professional employees are there for you to pick the
+                          most amazing and fresh fruits.
+                        </p>
+                      </div>
+                      <div class="rating rating-lg rating-half">
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="rating-hidden"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                          checked
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-1"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-4"
+                          class="bg-[#F85559] mask mask-star-2 mask-half-2"
+                        />
+                      </div>
+                      <div class="modal-action flex justify-center">
+                        <button
+                          class="px-8 py-4 mr-5 border-primarydark border-2 rounded-md font-extrabold text-primarydark"
+                        >
+                          Close
+                        </button>
+                        <button
+                          class="px-8 py-4 bg-primarydark border-none rounded-md font-extrabold text-white"
+                        >
+                          Buy Now
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </dialog>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="flex justify-center my-10">
+          <button
+            class="px-8 py-4 bg-primarydark border-none rounded-md font-extrabold text-white mx-auto"
+          >
+            Shop All
+          </button>
+        </div>
+      </section>
+
+      <!-- Team Section Start -->
+      <section
+        class="container rounded-lg mx-auto mt-20"
+        style="
+          background-image: url(images/team.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        "
+      >
+        <div
+          class="team-container rounded-lg w-full py-20 text-white"
+          style="background-color: rgb(0, 0, 0, 0.3)"
+        >
+          <h2 class="text-5xl text-white font-extrabold text-center">
+            Meet the team section
+          </h2>
+          <p
+            class="text-center text-white font-normal md:w-[415px] lg:w-[615px] mx-auto mt-5"
+          >
+            Contrary to popular belief, is not simply random text. It has roots
+            in a piece of classical Latin literature from 45 BC, making it over
+            2000 years old.
+          </p>
+
+          <div class="md:flex lg:flex justify-center">
+            <!-- team member 1 -->
+            <div class="md:w-[220px] lg:w-[220px] py-10 space-y-2 text-center">
+              <img
+                class="lg:w-[130px] md:w-[100px] mx-auto"
+                src="images/member1.png"
+                alt=""
+              />
+
+              <h2 class="text-2xl md:text-[22px] font-extrabold">
+                Awlad Hossain
+              </h2>
+              <p class="text-base font-normal">Fruits Expert</p>
+              <div class="flex gap-2 justify-center py-3">
+                <div><img src="./images/facebook 1.svg" alt="" /></div>
+                <div><img src="./images/twitter (1) 1.svg" alt="" /></div>
+                <div><img src="./images/linkedin 1.svg" alt="" /></div>
+              </div>
+            </div>
+            <!-- team member 2 -->
+            <div class="md:w-[220px] lg:w-[220px] py-10 space-y-2 text-center">
+              <img
+                class="lg:w-[130px] md:w-[100px] mx-auto"
+                src="images/member2.png"
+                alt=""
+              />
+
+              <h2 class="text-2xl md:text-[22px] font-extrabold">
+                Safia Chowdhury
+              </h2>
+              <p class="text-base font-normal">Fruits Expert</p>
+              <div class="flex gap-2 justify-center py-3">
+                <div><img src="./images/facebook 1.svg" alt="" /></div>
+                <div><img src="./images/twitter (1) 1.svg" alt="" /></div>
+                <div><img src="./images/linkedin 1.svg" alt="" /></div>
+              </div>
+            </div>
+            <!-- team member 3 -->
+            <div class="md:w-[220px] lg:w-[220px] py-10 space-y-2 text-center">
+              <img
+                class="lg:w-[130px] md:w-[100px] mx-auto"
+                src="images/member3.png"
+                alt=""
+              />
+
+              <h2 class="text-2xl md:text-[22px] font-extrabold">
+                Rokib Hossain
+              </h2>
+              <p class="text-base font-normal">Fruits Expert</p>
+              <div class="flex gap-2 justify-center py-3">
+                <div><img src="./images/facebook 1.svg" alt="" /></div>
+                <div><img src="./images/twitter (1) 1.svg" alt="" /></div>
+                <div><img src="./images/linkedin 1.svg" alt="" /></div>
+              </div>
+            </div>
+            <!-- team member 4 -->
+            <div class="md:w-[220px] lg:w-[220px] py-10 space-y-2 text-center">
+              <img
+                class="lg:w-[130px] md:w-[100px] mx-auto"
+                src="images/member4.png"
+                alt=""
+              />
+
+              <h2 class="text-2xl md:text-[22px] font-extrabold">Chaity</h2>
+              <p class="text-base font-normal">Fruits Expert</p>
+              <div class="flex gap-2 justify-center py-3">
+                <div><img src="./images/facebook 1.svg" alt="" /></div>
+                <div><img src="./images/twitter (1) 1.svg" alt="" /></div>
+                <div><img src="./images/linkedin 1.svg" alt="" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Team Section End -->
+
+      <!-- Choose us section Start -->
+      <section class="container mx-auto my-auto lg:mt-26">
+        <div class="text-center pt-20 pb-8">
+          <h1 class="text-5xl font-extrabold">Why Choose Us</h1>
+          <p class="py-5 lg:px-56">
+            Contrary to popular belief, is not simply random text. It has roots
+            in a piece of classical Latin literature from 45 BC, making it over
+            2000 years old.
+          </p>
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 pb-14"
+        >
+          <div class="hidden md:flex md:flex-col md:gap-10">
+            <div class="flex gap-3">
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-solid fa-users m-auto text-center"></i>
+              </div>
+              <div>
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Dedicated Team
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-regular fa-heart m-auto text-center"></i>
+              </div>
+              <div>
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Fresh is Best
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-solid fa-gift m-auto text-center"></i>
+              </div>
+              <div>
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Gift Certificates
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              class="w-[70%] mx-auto lg:h-full lg:w-full"
+              src="./images/whychoose1.png"
+              alt=""
+            />
+          </div>
+          <div class="flex flex-col gap-10 md:hidden lg:hidden">
+            <div class="flex flex-col text-center items-center gap-3">
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-solid fa-users m-auto text-center"></i>
+              </div>
+              <div>
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Dedicated Team
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col text-center items-center gap-3">
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-regular fa-heart m-auto text-center"></i>
+              </div>
+              <div>
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Fresh is Best
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col text-center items-center gap-3">
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-solid fa-gift m-auto text-center"></i>
+              </div>
+              <div>
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Gift Certificates
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-10">
+            <div
+              class="flex flex-col text-center items-center md:flex-row-reverse md:gap-3"
+            >
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-solid fa-apple-whole m-auto text-center"></i>
+              </div>
+              <div class="md:text-right">
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Integrated Supplier
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col text-center items-center md:flex-row-reverse md:gap-3"
+            >
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-solid fa-ice-cream m-auto text-center"></i>
+              </div>
+              <div class="md:text-right">
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  Sustainable Practice
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col text-center items-center md:flex-row-reverse md:gap-3"
+            >
+              <div class="flex w-20 h-12 bg-slate-300 rounded-full">
+                <i class="fa-solid fa-thumbs-up m-auto text-center"></i>
+              </div>
+              <div class="md:text-right">
+                <h1
+                  class="text-xl font-bold inline border-b-2 border-[#121212] pb-3"
+                >
+                  The Benefits Only
+                </h1>
+
+                <p class="pt-6">
+                  Professional employees are there for you to pick the most
+                  amazing and fresh fruits.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Choose us section Start -->
+    </main>
+
+    <!-- Footer Start -->
+    <footer class="footer footer-center p-10 bg-[#121212] text-base-content">
+      <div class="w-[200px] items-center flex mt-5">
+        <img class="w-[40px] mr-2" src="./images/logo.png" alt="Logo" />
+        <span class="text-2xl text-white font-extrabold">Fruit Burst</span>
+      </div>
+      <div class="grid grid-cols-3 md:grid-flow-col gap-10 text-white">
+        <a class="link link-hover">Home</a>
+        <a class="link link-hover">About Us</a>
+        <a class="link link-hover">Shop</a>
+        <a class="link link-hover">All Fruits</a>
+        <a class="link link-hover">Support</a>
+        <a class="link link-hover">My Account</a>
+      </div>
+      <div>
+        <div class="grid grid-flow-col gap-7 items-center">
+          <div><img class="w-8" src="./images/twitter.svg" alt="" /></div>
+          <div><img class="w-8" src="./images/facebook.svg" alt="" /></div>
+          <div><img class="w-8" src="./images/youtube.svg" alt="" /></div>
+          <div><img class="w-8" src="./images/linkedin.svg" alt="" /></div>
+          <div><img class="w-8" src="./images/instagram.svg" alt="" /></div>
+          <div><img class="w-8" src="./images/apple.svg" alt="" /></div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+  </body>
+</html>
